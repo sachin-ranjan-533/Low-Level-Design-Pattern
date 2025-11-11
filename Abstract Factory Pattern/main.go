@@ -1,9 +1,17 @@
 package main
 
 func main() {
-	vf := &VehicleFactory{}
-	vf.GetVehicle("LUXURY", "Car").drive()
-	vf.GetVehicle("LUXURY", "Bike").drive()
-	vf.GetVehicle("ORDINARY", "Car").drive()
-	vf.GetVehicle("ORDINARY", "Bike").drive()
+	abstractFactory := &AbstractFactory{}
+
+	luxuryFactory := abstractFactory.CreateFactory("Luxury")
+	luxuryCar := luxuryFactory.GetVehicle("Car")
+	luxuryCar.Drive()
+	luxuryBike := luxuryFactory.GetVehicle("Bike")
+	luxuryBike.Drive()
+
+	ordinaryFactory := abstractFactory.CreateFactory("Ordinary")
+	ordinaryCar := ordinaryFactory.GetVehicle("Car")
+	ordinaryCar.Drive()
+	ordinaryBike := ordinaryFactory.GetVehicle("Bike")
+	ordinaryBike.Drive()
 }

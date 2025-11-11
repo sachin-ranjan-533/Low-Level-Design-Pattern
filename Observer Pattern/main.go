@@ -1,17 +1,21 @@
 package main
 
+import (
+	"observer-patterns/observable"
+	"observer-patterns/observer"
+)
+
 func main() {
-	// Create the observable (iPhone stock)
-	iPhone := &iPhoneObservable{}
+	iphoneObservable := observable.NewIphoneObservable()
+	emailObserver := observer.NewEmailObserver("sachinranjan533@gmail.com")
+	phoneObserver := observer.NewPhoneObserver("+916205757958")
 
-	// Create observers (customers)
-	c1 := &Customer{id: 1, observable: iPhone}
-	c2 := &Customer{id: 2, observable: iPhone}
+	iphoneObservable.Subscribe(emailObserver)
+	iphoneObservable.Subscribe(phoneObserver)
 
-	// Register observers with the observable
-	iPhone.add(c1)
-	iPhone.add(c2)
+	iphoneObservable.Notify("New iPhone 15 Released!")
 
-	// Update stock; all observers will be notified
-	iPhone.setData(10)
+	iphoneObservable.Unsubscribe(phoneObserver)
+
+	iphoneObservable.Notify("iPhone 15 Pro Launched!")
 }

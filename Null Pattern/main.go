@@ -1,14 +1,14 @@
 package main
 
 func main() {
-	vehicleFactory := &VehicleFactory{}
+	factory := &Factory{}
 
-	car := vehicleFactory.CreateVehicle("car")
-	car.drive()
+	vehicle1 := factory.CreateVehicle("Bike")
+	vehicle1.Drive()
 
-	bike := vehicleFactory.CreateVehicle("bike")
-	bike.drive()
+	vehicle2 := factory.CreateVehicle("Car")
+	vehicle2.Drive()
 
-	defaultVehicle := vehicleFactory.CreateVehicle("plane")
-	defaultVehicle.drive()
+	vehicle3 := factory.CreateVehicle("Truck")
+	vehicle3.Drive()
 }

@@ -1,15 +1,26 @@
 package main
 
+import (
+	"strategy-pattern/strategy"
+	"strategy-pattern/vehicle"
+)
+
 func main() {
-	ordinaryCar := &OrdinaryCar{}
-	ordinaryCar.setDriveInterface(&NormalDrive{})
-	ordinaryCar.performDrive()
+	// creating normal drive strategy
+	normalStrategy := &strategy.NormalDriveStrategy{}
 
-	racingCar := &RacingCar{}
-	racingCar.setDriveInterface(&RacingDrive{})
-	racingCar.performDrive()
+	// creating sport drive strategy
+	sportStrategy := &strategy.SportDriveStrategy{}
 
-	superCar := &SuperCar{}
-	superCar.setDriveInterface(&RacingDrive{})
-	superCar.performDrive()
+	//  creating normal vehicle with normal drive strategy
+	normalVehicle := &vehicle.NormalVehicle{DriveStrategy: normalStrategy}
+	normalVehicle.Drive()
+
+	// creating sports vehicle with sport drive strategy
+	sportsVehicle := &vehicle.SportsVehicle{DriveStrategy: sportStrategy}
+	sportsVehicle.Drive()
+
+	// creating ordinary vehicle with normal drive strategy
+	ordinaryVehicle := &vehicle.OrdinaryVehicle{DriveStrategy: normalStrategy}
+	ordinaryVehicle.Drive()
 }

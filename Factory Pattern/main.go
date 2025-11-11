@@ -1,8 +1,11 @@
 package main
 
 func main() {
-	vehicleFactory := &VehicleFactory{}
-	
-	car := vehicleFactory.CreateVehicle("car")
-	car.drive()
+	factory := &Factory{}
+
+	car := factory.CreateVehicle("Car")
+	car.Drive()
+
+	bike := factory.CreateVehicle("Bike")
+	bike.Drive()
 }

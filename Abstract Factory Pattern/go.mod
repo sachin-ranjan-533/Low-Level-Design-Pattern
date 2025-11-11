@@ -1,3 +1,3 @@
-module abstract-factory-pattern.go
+module abstract-factory-pattern
 
 go 1.23.5
