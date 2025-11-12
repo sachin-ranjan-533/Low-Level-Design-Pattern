@@ -4,6 +4,7 @@ import (
 	"command-pattern/command"
 	"command-pattern/invoker"
 	"command-pattern/receiver"
+	"fmt"
 )
 
 func main() {
@@ -14,4 +15,7 @@ func main() {
 	offCommand := command.NewOffCommand(*receiver.NewAirConditioner("LG"))
 	remoteControl = invoker.NewRemoteControl(offCommand)
 	remoteControl.PressButton()
+
+	fmt.Print("Undoing last command: ")
+	remoteControl.PressUndo()
 }

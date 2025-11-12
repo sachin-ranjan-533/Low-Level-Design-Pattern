@@ -15,3 +15,7 @@ func NewOffCommand(ac receiver.AirConditioner) *OffCommand {
 func (oc *OffCommand) PressButton() {
 	oc.airConditioner.Off()
 }
+
+func (oc *OffCommand) PressUndo() {
+	oc.airConditioner.On()
+}
